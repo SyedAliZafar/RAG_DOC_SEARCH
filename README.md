@@ -17,6 +17,13 @@ This project uses **both FastAPI and Streamlit**, serving different roles:
   - Ask questions and receive answers based on your documents
   - Display chat history and responses interactively
 
+
+  
+## 🖼️ App Interface
+
+![RAG Search UI](images/userinterface.PNG)
+
+
 ### Running the apps
 
 - **Backend:** FastAPI runs the backend server, but **you don’t need to start it manually** if you’re using the Streamlit frontend, because the Streamlit app directly calls the shared application logic in Python without relying on the FastAPI server.
@@ -27,10 +34,6 @@ This project uses **both FastAPI and Streamlit**, serving different roles:
 streamlit run streamlit_app.py
 
 ---
-
-## 🖼️ App Interface
-
-![RAG Search UI](images/userinterface.png)
 
 ---
 
