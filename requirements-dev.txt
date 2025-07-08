@@ -6,3 +6,7 @@ mypy==1.5.1
 pytest-cov==4.1.0
 pre-commit
 fastapi==0.115.14
+langchain-openai==0.3.27
+langchain-community==0.3.27
+langchain==0.3.26
+python-multipart
