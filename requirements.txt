@@ -1,8 +1,8 @@
 streamlit==1.26.0
 langchain==0.3.26
-python-dotenv==1.0.0
-openai==1.93.0
 langchain-openai==0.3.27
 langchain-community==0.3.27
 fastapi==0.115.14
+python-multipart
+faiss-cpu
 python-multipart
