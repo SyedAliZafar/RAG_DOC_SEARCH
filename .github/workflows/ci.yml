@@ -10,7 +10,7 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     env:
-      OPENAI_API_KEY: dummy-test-key
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     steps:
       - name: Checkout code
