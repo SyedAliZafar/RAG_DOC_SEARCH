@@ -1,3 +1,7 @@
-fastapi
-uvicorn
-python-multipart
+streamlit==1.26.0
+langchain==0.0.263
+faiss-cpu==1.7.4.post2
+python-dotenv==1.0.0
+openai==0.27.8
+langchain-openai==0.0.9
+langchain-community==0.0.37

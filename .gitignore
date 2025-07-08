@@ -1,0 +1,9 @@
+.env
+uploaded_files/
+__pycache__/
+.pytest_cache/
+vector_db/
+faissindex/
+ui/
+__pycache__/
+*.pyc
