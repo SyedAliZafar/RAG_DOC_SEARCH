@@ -7,7 +7,6 @@ from langchain_core.retrievers import BaseRetriever
 from langchain_community.chat_models import ChatOpenAI
 
 
-
 def test_get_rag_chain_returns_chain(monkeypatch):
     # -- Dummy Retriever that satisfies LangChain's BaseRetriever interface --
     class DummyRetriever(BaseRetriever):

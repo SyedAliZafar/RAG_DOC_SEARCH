@@ -16,8 +16,10 @@ INDEX_PATH = "vector_db"
 
 _vectorstore = None  # internal memory
 
+
 def save_vectorstore(vs):
     vs.save_local(INDEX_PATH)
+
 
 def load_vectorstore():
     if os.path.exists(INDEX_PATH):
@@ -25,18 +27,19 @@ def load_vectorstore():
         return FAISS.load_local(
             INDEX_PATH,
             embeddings,
-            allow_dangerous_deserialization=True  # Add this flag here
+            allow_dangerous_deserialization=True,  # Add this flag here
         )
     return None
-
 
 
 def set_vectorstore(vs):
     global _vectorstore
     _vectorstore = vs
 
+
 def get_vectorstore():
     return _vectorstore
+
 
 def select_loader(file_path: Path):
     if file_path.suffix == ".pdf":
@@ -49,7 +52,7 @@ def select_loader(file_path: Path):
         return Docx2txtLoader(str(file_path))
     else:
         return UnstructuredFileLoader(str(file_path))  # fallback
-    
+
 
 def load_and_index(file_path: Path):
     loader = select_loader(file_path)
@@ -68,4 +71,3 @@ def load_and_index(file_path: Path):
 
     set_vectorstore(vs)
     save_vectorstore(vs)
-

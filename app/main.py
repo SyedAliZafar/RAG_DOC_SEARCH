@@ -10,6 +10,7 @@ from app.rag_chain import get_rag_chain
 import os
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 assert os.getenv("OPENAI_API_KEY"), "OPENAI_API_KEY is not set!"
@@ -19,10 +20,13 @@ app = FastAPI()
 UPLOAD_DIR = Path("uploaded_files")
 UPLOAD_DIR.mkdir(exist_ok=True)
 
+
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     if not file.filename.endswith((".txt", ".pdf")):
-        raise HTTPException(status_code=400, detail="Only .txt and .pdf files are supported")
+        raise HTTPException(
+            status_code=400, detail="Only .txt and .pdf files are supported"
+        )
 
     file_path = UPLOAD_DIR / file.filename
     with open(file_path, "wb") as buffer:
@@ -32,8 +36,10 @@ async def upload_file(file: UploadFile = File(...)):
 
     return {"filename": file.filename, "status": "processed and indexed"}
 
+
 class AskRequest(BaseModel):
     query: str
+
 
 @app.post("/ask")
 async def ask_question(request: AskRequest):

@@ -3,6 +3,7 @@ import tempfile
 from pathlib import Path
 from app.ingestion import load_and_index, get_vectorstore, set_vectorstore
 
+
 def test_load_and_index_text_file():
     # Create a temporary text file
     with tempfile.NamedTemporaryFile(suffix=".txt", mode="w", delete=False) as f:

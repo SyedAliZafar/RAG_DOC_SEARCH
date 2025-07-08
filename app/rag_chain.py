@@ -1,11 +1,12 @@
-
-
 from langchain.chains import RetrievalQA
-from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from langchain.prompts import (
+    ChatPromptTemplate,
+    SystemMessagePromptTemplate,
+    HumanMessagePromptTemplate,
+)
 from langchain.chat_models import ChatOpenAI
 from langchain_community.llms import HuggingFaceHub, LlamaCpp
 from app.ingestion import get_vectorstore
-
 
 
 def get_rag_chain(model_name="OpenAI"):
@@ -34,12 +35,11 @@ def get_rag_chain(model_name="OpenAI"):
         "If the answer is not in the context, say you don't know."
     )
 
-    human_message = HumanMessagePromptTemplate.from_template("Context:\n{context}\n\nQuestion:\n{question}")
+    human_message = HumanMessagePromptTemplate.from_template(
+        "Context:\n{context}\n\nQuestion:\n{question}"
+    )
 
-    prompt = ChatPromptTemplate.from_messages([
-        system_message,
-        human_message
-    ])
+    prompt = ChatPromptTemplate.from_messages([system_message, human_message])
 
     # Select the LLM
     model_name = model_name.lower()
@@ -48,8 +48,7 @@ def get_rag_chain(model_name="OpenAI"):
         llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
     elif model_name == "huggingface":
         llm = HuggingFaceHub(
-            repo_id="tiiuae/falcon-7b-instruct",
-            model_kwargs={"temperature": 0.5}
+            repo_id="tiiuae/falcon-7b-instruct", model_kwargs={"temperature": 0.5}
         )
     elif model_name == "llama":
         llm = LlamaCpp(
