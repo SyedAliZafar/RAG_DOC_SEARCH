@@ -30,7 +30,7 @@ streamlit run streamlit_app.py
 
 ## 🖼️ App Interface
 
-![RAG Search UI](images/userinterface.PNG)
+![RAG Search UI](images/userinterface.png)
 
 ---
 
