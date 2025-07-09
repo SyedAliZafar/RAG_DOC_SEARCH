@@ -39,7 +39,6 @@ def get_rag_chain(model_name="OpenAI"):
         "Do not make up information. If the context doesn't contain the answer, say you don't know."
     )
 
-
     human_message = HumanMessagePromptTemplate.from_template(
         "Context:\n{context}\n\nQuestion:\n{question}"
     )
