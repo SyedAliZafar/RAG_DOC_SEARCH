@@ -48,13 +48,14 @@ FastAPI backend → http://localhost:8000/docs
 
 # Note
 You need to create a .env file in the project root and add your OpenAI API key like this:
-```bash
+
+```python
 OPENAI_API_KEY=your_openai_api_key_here
-```bash 
+```
 
 In app/main.py, ensure you load the environment variables and verify the key is set:
 
-```bash
+```python
 import os
 from dotenv import load_dotenv
 
@@ -62,14 +63,14 @@ load_dotenv()
 
 assert os.getenv("OPENAI_API_KEY"), "OPENAI_API_KEY is not set!"
 
-```bash
+```
 
 
 # Run Locally
 
-```bash
+```python
 streamlit run streamlit_app.py
-
+```
 
 ## ✨ Features
 
