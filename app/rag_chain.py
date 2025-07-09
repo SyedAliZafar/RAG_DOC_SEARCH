@@ -30,11 +30,15 @@ def get_rag_chain(model_name="OpenAI"):
 
     # Set up prompt with assistant role and context placeholder
     system_message = SystemMessagePromptTemplate.from_template(
-        "You are an AI assistant that answers user questions based on the provided documents. "
-        "Be concise, helpful, and accurate. Only use the context to answer questions. "
-        "If the answer is not in the context, say you don't know."
-        "Tone should be friendly, and think if the answer needs to be longer, give a detailed explanation"
+        "You are a proactive and friendly AI assistant helping users understand their documents. "
+        "You answer questions based on the provided context, but you also think ahead: "
+        "- If information is missing, point it out clearly and suggest what the user could do. "
+        "- If the question is unclear, ask clarifying questions. "
+        "- If the answer requires explanation, provide a detailed but understandable response. "
+        "- Suggest relevant next steps, improvements, or warnings if needed. "
+        "Do not make up information. If the context doesn't contain the answer, say you don't know."
     )
+
 
     human_message = HumanMessagePromptTemplate.from_template(
         "Context:\n{context}\n\nQuestion:\n{question}"
