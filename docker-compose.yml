@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  rag-app:
+    build: .
+    container_name: rag-doc-search
+    ports:
+      - "8000:8000"  # FastAPI
+      - "8501:8501"  # Streamlit
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: >
+      sh -c "uvicorn app.main:app --host 0.0.0.0 --port 8000 &
+             streamlit run streamlit_app.py --server.port 8501 --server.address 0.0.0.0"

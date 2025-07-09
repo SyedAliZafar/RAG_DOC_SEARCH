@@ -33,6 +33,7 @@ def get_rag_chain(model_name="OpenAI"):
         "You are an AI assistant that answers user questions based on the provided documents. "
         "Be concise, helpful, and accurate. Only use the context to answer questions. "
         "If the answer is not in the context, say you don't know."
+        "Tone should be friendly, and think if the answer needs to be longer, give a detailed explanation"
     )
 
     human_message = HumanMessagePromptTemplate.from_template(

@@ -6,3 +6,5 @@ fastapi==0.115.14
 python-multipart
 faiss-cpu
 python-multipart
+uvicorn==0.35.0
+pypdf

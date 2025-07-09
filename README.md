@@ -76,16 +76,16 @@ RAG_DOC_SEARCH/
 │   ├── main.py
 │   ├── ingestion.py
 │   ├── rag_chain.py
-│   └── embedding.py (this is not required by the application)
+├── streamlit_app.py
+├── uploaded_files/
 ├── tests/
-│   ├── test_health.py
-│   ├── test_ingestion.py
-│   └── test_rag_chain.py
-├── images/
-│   └── userinterface.PNG
 ├── requirements.txt
 ├── requirements-dev.txt
+├── Dockerfile
+├── docker-compose.yml
 ├── .github/workflows/ci.yml
+├── images/
+│   └── userinterface.PNG
 └── README.md
 
 
@@ -111,6 +111,29 @@ Open your browser and visit:
 👉 http://localhost:8000/docs — for FastAPI's Swagger UI
 
 
+
+
+
+🐳 Docker Support
+
+🔧 Build the Image
+
+docker-compose build --no-cache
+
+▶️ Run the App
+
+docker-compose up
+
+Streamlit UI → http://localhost:8501
+
+FastAPI backend → http://localhost:8000/docs
+
+🧊 .env Setup for Docker
+Make sure your .env file is present in the root with:
+
+OPENAI_API_KEY=your_key_here
+
+
 🐍 Requirements
 Python 3.9+
 
@@ -129,22 +152,35 @@ isort --check-only app tests
 flake8 app tests
 mypy app
 
-
 🔄 CI/CD
-GitHub Actions runs on every push to main:
+GitHub Actions runs automatically on every push to main and on pull requests. It performs:
 
-✅ Black formatting check
+✅ Code formatting check using black
 
-✅ Pytest unit tests
+✅ Static code analysis via flake8, isort, and mypy
 
-✅ Uses OPENAI_API_KEY via GitHub secrets [https://github.com/SyedAliZafar/RAG_DOC_SEARCH/settings/secrets/actions]
+✅ Unit testing using pytest
 
-✅ Future Improvements
+✅ Secure key handling through OPENAI_API_KEY stored in GitHub Secrets
 
-Add Streamlit-based frontend
+✅ Streamlit-based frontend integrated alongside FastAPI
 
-Add PDF document support
+✅ Support for multiple file types, including .pdf, .txt, .md, .docx
 
-Add mocking to tests for CI compatibility
 
-Docker support for deployment
+
+🚀 Future Improvements
+
+ * Add mocking in tests to avoid real API calls and make CI faster and token-free
+
+ * Add Docker support for simplified deployment
+
+ * Add authentication (optional user access control)
+
+ * Support for chunking strategies or custom embeddings
+
+
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
