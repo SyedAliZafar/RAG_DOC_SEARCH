@@ -104,6 +104,7 @@ cd RAG_DOC_SEARCH
 ```
 
 
+```
 📁 Project Structure
 
 RAG_DOC_SEARCH/
@@ -123,6 +124,7 @@ RAG_DOC_SEARCH/
 ├── images/
 │   └── userinterface.PNG
 └── README.md
+```
 
 ``` python
 
