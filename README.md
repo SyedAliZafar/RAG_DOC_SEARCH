@@ -30,16 +30,50 @@ This project uses **both FastAPI and Streamlit**, serving different roles:
 
 - **Frontend:** You only need to run the Streamlit app to use the full application UI and functionality:
 
+
+🐳 Docker
+
+🔧 Build the Image
+
+docker-compose build --no-cache
+
+▶️ Run the App
+
+docker-compose up
+
+Streamlit UI → http://localhost:8501
+
+FastAPI backend → http://localhost:8000/docs
+
+
+# Note
+You need to create a .env file in the project root and add your OpenAI API key like this:
+```bash
+OPENAI_API_KEY=your_openai_api_key_here
+```bash 
+
+In app/main.py, ensure you load the environment variables and verify the key is set:
+
+```bash
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+assert os.getenv("OPENAI_API_KEY"), "OPENAI_API_KEY is not set!"
+
+```bash
+
+
+# Run Locally
+
 ```bash
 streamlit run streamlit_app.py
 
----
-
----
 
 ## ✨ Features
 
-- 📄 Upload `.txt` documents
+- 📄 Upload `.txt .pdf .md or docx` documents
 - 🧠 Embed and index content using `LangChain` + `OpenAIEmbeddings`
 - 📦 Vector search powered by `FAISS`
 - 🤖 Ask questions and get intelligent, context-aware answers from your data
@@ -76,6 +110,7 @@ RAG_DOC_SEARCH/
 │   ├── main.py
 │   ├── ingestion.py
 │   ├── rag_chain.py
+├── .env
 ├── streamlit_app.py
 ├── uploaded_files/
 ├── tests/
@@ -105,28 +140,11 @@ Or by creating a .env file and loading it:
 OPENAI_API_KEY=your_key_here
 
 🧪 Run Locally
-uvicorn app.main:app --reload
+streamlit run streamlit_app.py
 
 Open your browser and visit:
-👉 http://localhost:8000/docs — for FastAPI's Swagger UI
+👉 http://localhost:8501 — for Steamlit App
 
-
-
-
-
-🐳 Docker Support
-
-🔧 Build the Image
-
-docker-compose build --no-cache
-
-▶️ Run the App
-
-docker-compose up
-
-Streamlit UI → http://localhost:8501
-
-FastAPI backend → http://localhost:8000/docs
 
 🧊 .env Setup for Docker
 Make sure your .env file is present in the root with:
@@ -166,18 +184,6 @@ GitHub Actions runs automatically on every push to main and on pull requests. It
 ✅ Streamlit-based frontend integrated alongside FastAPI
 
 ✅ Support for multiple file types, including .pdf, .txt, .md, .docx
-
-
-
-🚀 Future Improvements
-
- * Add mocking in tests to avoid real API calls and make CI faster and token-free
-
- * Add Docker support for simplified deployment
-
- * Add authentication (optional user access control)
-
- * Support for chunking strategies or custom embeddings
 
 
 
