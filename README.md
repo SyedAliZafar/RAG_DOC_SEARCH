@@ -191,6 +191,10 @@ GitHub Actions runs automatically on every push to main and on pull requests. It
 ✅ Support for multiple file types, including .pdf, .txt, .md, .docx
 
 
+# Future
+
+* build the app using NodesJs and connect with FastAPI
+
 
 ## 📝 License
 
