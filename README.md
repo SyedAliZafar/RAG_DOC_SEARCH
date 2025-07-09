@@ -98,10 +98,10 @@ streamlit run streamlit_app.py
 
 ### 📥 Clone the Repository
 
-```bash
+``` git
 git clone https://github.com/SyedAliZafar/RAG_DOC_SEARCH.git
 cd RAG_DOC_SEARCH
-
+```
 
 
 📁 Project Structure
@@ -124,12 +124,13 @@ RAG_DOC_SEARCH/
 │   └── userinterface.PNG
 └── README.md
 
-
+``` python
 
 📦 Install Dependencies
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
 
+```
 
 🔑 Set Your OpenAI API Key
 Either in your shell:
@@ -154,9 +155,8 @@ OPENAI_API_KEY=your_key_here
 
 
 🐍 Requirements
-Python 3.9+
-
-OpenAI API Key
+ * Python 3.9+
+ * OpenAI API Key
 
 
 🧪 Run Tests
@@ -165,11 +165,13 @@ pytest tests/
 
 🧹 Formatting & Linting
 Run all checks:
+``` python
 
 black --check app tests
 isort --check-only app tests
 flake8 app tests
 mypy app
+```
 
 🔄 CI/CD
 GitHub Actions runs automatically on every push to main and on pull requests. It performs:
